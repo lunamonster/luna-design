@@ -43,3 +43,7 @@ export const palette = {
     return paletteColors[Math.abs(hash) % paletteColors.length];
   },
 };
+
+// Aggregate namespace so consumers can `import { rules }` and reach
+// rules.urgency / rules.overdue / rules.sorts / rules.palette (see README §9).
+export const rules = { urgency, overdue, sorts, palette };
