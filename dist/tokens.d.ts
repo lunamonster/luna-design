@@ -22,12 +22,52 @@ export declare const colors: {
     readonly lavenderActive: "#EDE6F7";
     readonly rainbow: readonly ["#FF0080", "#FF8C00", "#40E0D0", "#4169E1", "#9370DB"];
     readonly neutral: {
+        readonly title: "#1a1a1a";
         readonly text: "#171717";
-        readonly soft: "#444444";
+        readonly strong: "#374151";
+        readonly body: "#666666";
+        readonly subtle: "#888888";
         readonly muted: "#737373";
+        readonly bodyAlt: "#555555";
+        readonly soft: "#444444";
         readonly faint: "#999999";
+        readonly weak: "#9ca3af";
+        readonly line: "#d1d5db";
+        readonly divider: "#dddddd";
         readonly border: "#E5E5E5";
         readonly hover: "#F5F5F5";
+    };
+    readonly review: {
+        readonly cardBg: {
+            readonly mention: "#faf5ff";
+            readonly relationship: "#fdfcff";
+            readonly match: "#f0fdff";
+            readonly default: "#fffdf9";
+        };
+        readonly cardBorder: {
+            readonly mention: "#e9d5ff";
+            readonly relationship: "#ddd6fe";
+            readonly match: "#a5f3fc";
+            readonly default: "#e5ddd5";
+        };
+        readonly badgeBg: {
+            readonly mention: "#f3e8ff";
+            readonly relationship: "#f5f3ff";
+            readonly match: "#ecfeff";
+            readonly entity: "#fef3e2";
+            readonly default: "#eef2ff";
+        };
+        readonly badgeColor: {
+            readonly mention: "#7c3aed";
+            readonly relationship: "#6d28d9";
+            readonly match: "#0e7490";
+            readonly entity: "#c05c00";
+            readonly default: "#4338ca";
+        };
+        readonly saveBg: "#2d6a4f";
+        readonly skipBg: "#f0ece4";
+        readonly doneBg: "#c05c00";
+        readonly nudge: "#8B847C";
     };
     readonly sidebar: {
         readonly logoGradient: readonly ["#667eea", "#764ba2", "#f5576c"];

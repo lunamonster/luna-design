@@ -36,15 +36,34 @@ exports.colors = {
     lavenderActive: '#EDE6F7',
     // Bright rainbow used for the "today" pill on the week column
     rainbow: ['#FF0080', '#FF8C00', '#40E0D0', '#4169E1', '#9370DB'],
-    // Neutral (cool) gray ramp — chat/sidebar chrome, distinct from the warm
-    // cream-based inks above.
+    // Neutral (cool) gray ramp — chat/sidebar/modal chrome, distinct from the
+    // warm cream-based inks above.
     neutral: {
+        title: '#1a1a1a', // modal heading text
         text: '#171717', // near-black button/label text
-        soft: '#444444', // secondary button text
+        strong: '#374151', // gray-700 — normal-priority, edit-button text
+        body: '#666666', // modal body / detail text
+        subtle: '#888888', // modal subtitles, muted counts
         muted: '#737373', // uppercase section labels, email
-        faint: '#999999', // tagline
+        bodyAlt: '#555555', // skip-button text
+        soft: '#444444', // secondary button text
+        faint: '#999999', // taglines, faint meta
+        weak: '#9ca3af', // gray-400 — low-priority text
+        line: '#d1d5db', // gray-300 — edit-button border
+        divider: '#dddddd', // refresh-button border
         border: '#E5E5E5', // sidebar borders / dividers
         hover: '#F5F5F5', // neutral hover background
+    },
+    // Review-queue proposal-kind taxonomy + action buttons
+    review: {
+        cardBg: { mention: '#faf5ff', relationship: '#fdfcff', match: '#f0fdff', default: '#fffdf9' },
+        cardBorder: { mention: '#e9d5ff', relationship: '#ddd6fe', match: '#a5f3fc', default: '#e5ddd5' },
+        badgeBg: { mention: '#f3e8ff', relationship: '#f5f3ff', match: '#ecfeff', entity: '#fef3e2', default: '#eef2ff' },
+        badgeColor: { mention: '#7c3aed', relationship: '#6d28d9', match: '#0e7490', entity: '#c05c00', default: '#4338ca' },
+        saveBg: '#2d6a4f', // accept/save button
+        skipBg: '#f0ece4', // skip button
+        doneBg: '#c05c00', // footer "Done" button
+        nudge: '#8B847C', // urgent-count re-triage hint
     },
     // Sidebar chrome accents
     sidebar: {
