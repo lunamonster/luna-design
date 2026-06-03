@@ -1,4 +1,7 @@
 node_modules/
-dist/
 *.log
 .DS_Store
+
+# dist/ is committed (not ignored): pnpm blocks git-dep build scripts, so
+# consumers rely on prebuilt output. Run `npm run build` and commit dist
+# before pushing a token change.
