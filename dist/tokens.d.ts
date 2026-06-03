@@ -21,6 +21,26 @@ export declare const colors: {
     readonly purpleLogo: "#6B3F9F";
     readonly lavenderActive: "#EDE6F7";
     readonly rainbow: readonly ["#FF0080", "#FF8C00", "#40E0D0", "#4169E1", "#9370DB"];
+    readonly neutral: {
+        readonly text: "#171717";
+        readonly soft: "#444444";
+        readonly muted: "#737373";
+        readonly faint: "#999999";
+        readonly border: "#E5E5E5";
+        readonly hover: "#F5F5F5";
+    };
+    readonly sidebar: {
+        readonly logoGradient: readonly ["#667eea", "#764ba2", "#f5576c"];
+        readonly activeBg: "#ede9fe";
+        readonly activeBorder: "#c4b5fd";
+        readonly activeText: "#5b21b6";
+        readonly entitiesHover: "#F5F0FF";
+        readonly ingestHover: "#FFF3E8";
+        readonly commitmentsHover: "#E8F5EE";
+        readonly reviewPendingBg: "#fef3e2";
+        readonly reviewPendingBorder: "#f0d9b5";
+        readonly pendingBadge: "#c05c00";
+    };
 };
 export declare const typography: {
     readonly heading: {

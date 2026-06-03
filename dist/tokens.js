@@ -36,6 +36,29 @@ exports.colors = {
     lavenderActive: '#EDE6F7',
     // Bright rainbow used for the "today" pill on the week column
     rainbow: ['#FF0080', '#FF8C00', '#40E0D0', '#4169E1', '#9370DB'],
+    // Neutral (cool) gray ramp — chat/sidebar chrome, distinct from the warm
+    // cream-based inks above.
+    neutral: {
+        text: '#171717', // near-black button/label text
+        soft: '#444444', // secondary button text
+        muted: '#737373', // uppercase section labels, email
+        faint: '#999999', // tagline
+        border: '#E5E5E5', // sidebar borders / dividers
+        hover: '#F5F5F5', // neutral hover background
+    },
+    // Sidebar chrome accents
+    sidebar: {
+        logoGradient: ['#667eea', '#764ba2', '#f5576c'], // "Luna 2.0" gradient text
+        activeBg: '#ede9fe',
+        activeBorder: '#c4b5fd',
+        activeText: '#5b21b6',
+        entitiesHover: '#F5F0FF', // purple tint
+        ingestHover: '#FFF3E8', // orange tint (also review-queue hover)
+        commitmentsHover: '#E8F5EE', // green tint
+        reviewPendingBg: '#fef3e2',
+        reviewPendingBorder: '#f0d9b5',
+        pendingBadge: '#c05c00', // muted pending-count badge
+    },
 };
 exports.typography = {
     heading: { family: 'Caveat Brush', weight: 400 }, // space names, week header
