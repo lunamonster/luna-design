@@ -107,3 +107,31 @@ export const opacity = {
   ghost: 1,        // used with ink-ghost color, not as opacity
   urgentDot: 0.7,
 } as const;
+
+// ---------------------------------------------------------------------------
+// Native (mobile) contrast variants — W4 design-token unification.
+// luna-mobile previously hand-forked its palette (theme/colors.ts: bg #FAF7F2,
+// brandPrimary #7C3AED, textPrimary #1A1A1A) because the web cream/ink ramp
+// reads too low-contrast on small OLED screens. Those adjustments now live
+// HERE so mobile consumes the package instead of forking it: spread `colors`,
+// override with `nativeColors`. Anything not overridden is identical to web.
+export const nativeColors = {
+  background: '#FAF7F2',    // slightly deeper cream for mobile-native contrast
+  card: '#FFFFFF',
+  textPrimary: '#1A1A1A',   // darker ink for small type
+  textMuted: '#6F6F6A',
+  brandPrimary: '#7C3AED',  // mobile brand accent (web purpleLogo stays #6B3F9F)
+  // Hero gradient used by the mobile home header. Web has no equivalent; kept
+  // here so both platforms share one source if web ever adopts it.
+  heroGradient: ['#7C3AED', '#EC4899', '#F59E0B'],
+} as const;
+
+// One icon family across platforms: Phosphor.
+// Web: @phosphor-icons/react (in use across ~20 components).
+// Mobile: phosphor-react-native (already a dependency; migrate screens off
+// Ionicons as they're touched). New UI on either platform MUST use Phosphor.
+export const iconFamily = {
+  web: '@phosphor-icons/react',
+  native: 'phosphor-react-native',
+  defaultWeight: 'regular',
+} as const;

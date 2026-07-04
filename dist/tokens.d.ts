@@ -124,3 +124,16 @@ export declare const opacity: {
     readonly ghost: 1;
     readonly urgentDot: 0.7;
 };
+export declare const nativeColors: {
+    readonly background: "#FAF7F2";
+    readonly card: "#FFFFFF";
+    readonly textPrimary: "#1A1A1A";
+    readonly textMuted: "#6F6F6A";
+    readonly brandPrimary: "#7C3AED";
+    readonly heroGradient: readonly ["#7C3AED", "#EC4899", "#F59E0B"];
+};
+export declare const iconFamily: {
+    readonly web: "@phosphor-icons/react";
+    readonly native: "phosphor-react-native";
+    readonly defaultWeight: "regular";
+};

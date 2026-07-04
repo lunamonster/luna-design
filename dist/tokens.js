@@ -5,7 +5,7 @@
 // line is noted; space accent colors below are runtime-overridable fallbacks
 // (the API supplies DashboardSpace.color per space).
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.opacity = exports.radii = exports.spacing = exports.typography = exports.colors = void 0;
+exports.iconFamily = exports.nativeColors = exports.opacity = exports.radii = exports.spacing = exports.typography = exports.colors = void 0;
 exports.colors = {
     cream: '#FEFCF7', // app background (dashboard.tsx CREAM)
     creamDeep: '#F4F6F5', // cool off-white — shared/section surfaces
@@ -96,4 +96,30 @@ exports.opacity = {
     done: 0.55,
     ghost: 1, // used with ink-ghost color, not as opacity
     urgentDot: 0.7,
+};
+// ---------------------------------------------------------------------------
+// Native (mobile) contrast variants — W4 design-token unification.
+// luna-mobile previously hand-forked its palette (theme/colors.ts: bg #FAF7F2,
+// brandPrimary #7C3AED, textPrimary #1A1A1A) because the web cream/ink ramp
+// reads too low-contrast on small OLED screens. Those adjustments now live
+// HERE so mobile consumes the package instead of forking it: spread `colors`,
+// override with `nativeColors`. Anything not overridden is identical to web.
+exports.nativeColors = {
+    background: '#FAF7F2', // slightly deeper cream for mobile-native contrast
+    card: '#FFFFFF',
+    textPrimary: '#1A1A1A', // darker ink for small type
+    textMuted: '#6F6F6A',
+    brandPrimary: '#7C3AED', // mobile brand accent (web purpleLogo stays #6B3F9F)
+    // Hero gradient used by the mobile home header. Web has no equivalent; kept
+    // here so both platforms share one source if web ever adopts it.
+    heroGradient: ['#7C3AED', '#EC4899', '#F59E0B'],
+};
+// One icon family across platforms: Phosphor.
+// Web: @phosphor-icons/react (in use across ~20 components).
+// Mobile: phosphor-react-native (already a dependency; migrate screens off
+// Ionicons as they're touched). New UI on either platform MUST use Phosphor.
+exports.iconFamily = {
+    web: '@phosphor-icons/react',
+    native: 'phosphor-react-native',
+    defaultWeight: 'regular',
 };
