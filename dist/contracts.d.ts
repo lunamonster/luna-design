@@ -168,6 +168,181 @@ export declare const ingestReceiptPayloadSchema: z.ZodObject<{
     }, z.ZodTypeAny, "passthrough">>, "many">>;
     batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
 }, z.ZodTypeAny, "passthrough">>;
+export declare const ingestReceiptCardSchema: z.ZodObject<{
+    artifact_id: z.ZodString;
+    rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    summary: z.ZodNullable<z.ZodString>;
+    counts: z.ZodObject<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, z.ZodTypeAny, "passthrough">>;
+    stories: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>, "many">>;
+    actions: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">>, "many">>;
+    batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"ingest_receipt">;
+}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    artifact_id: z.ZodString;
+    rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    summary: z.ZodNullable<z.ZodString>;
+    counts: z.ZodObject<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, z.ZodTypeAny, "passthrough">>;
+    stories: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>, "many">>;
+    actions: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">>, "many">>;
+    batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"ingest_receipt">;
+}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+    artifact_id: z.ZodString;
+    rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    summary: z.ZodNullable<z.ZodString>;
+    counts: z.ZodObject<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        proposals_pending: z.ZodNumber;
+        action_items: z.ZodNumber;
+        story_threads: z.ZodOptional<z.ZodNumber>;
+    }, z.ZodTypeAny, "passthrough">>;
+    stories: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        name: z.ZodString;
+        status: z.ZodString;
+        telling_count: z.ZodNumber;
+        kind: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>, "many">>;
+    actions: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        label: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        href: z.ZodOptional<z.ZodString>;
+        detail: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">>, "many">>;
+    batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"ingest_receipt">;
+}, z.ZodTypeAny, "passthrough">>;
 export declare const boundaryPromptPayloadSchema: z.ZodObject<{
     minutes: z.ZodNumber;
     transcript_chars: z.ZodNumber;
@@ -243,6 +418,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -299,6 +476,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -355,6 +534,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
     minutes: z.ZodNumber;
@@ -431,6 +612,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -487,6 +670,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -543,6 +728,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
     minutes: z.ZodNumber;
@@ -619,6 +806,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -675,6 +864,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -731,6 +922,8 @@ export declare const boundaryPromptPayloadSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 }, z.ZodTypeAny, "passthrough">>;
 export declare const sessionCardPayloadSchema: z.ZodObject<{
@@ -938,6 +1131,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -994,6 +1189,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -1050,6 +1247,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 } & {
     type: z.ZodLiteral<"boundary_prompt">;
@@ -1128,6 +1327,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -1184,6 +1385,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -1240,6 +1443,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 } & {
     type: z.ZodLiteral<"boundary_prompt">;
@@ -1318,6 +1523,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -1374,6 +1581,8 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -1430,184 +1639,11 @@ export declare const boundaryPromptCardSchema: z.ZodObject<{
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 } & {
     type: z.ZodLiteral<"boundary_prompt">;
-}, z.ZodTypeAny, "passthrough">>;
-export declare const ingestReceiptCardSchema: z.ZodObject<{
-    artifact_id: z.ZodString;
-    rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-    summary: z.ZodNullable<z.ZodString>;
-    counts: z.ZodObject<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, z.ZodTypeAny, "passthrough">>;
-    stories: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>, "many">>;
-    actions: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>, "many">>;
-    batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-} & {
-    type: z.ZodLiteral<"ingest_receipt">;
-}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-    artifact_id: z.ZodString;
-    rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-    summary: z.ZodNullable<z.ZodString>;
-    counts: z.ZodObject<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, z.ZodTypeAny, "passthrough">>;
-    stories: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>, "many">>;
-    actions: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>, "many">>;
-    batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-} & {
-    type: z.ZodLiteral<"ingest_receipt">;
-}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-    artifact_id: z.ZodString;
-    rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-    summary: z.ZodNullable<z.ZodString>;
-    counts: z.ZodObject<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        proposals_pending: z.ZodNumber;
-        action_items: z.ZodNumber;
-        story_threads: z.ZodOptional<z.ZodNumber>;
-    }, z.ZodTypeAny, "passthrough">>;
-    stories: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        name: z.ZodString;
-        status: z.ZodString;
-        telling_count: z.ZodNumber;
-        kind: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>, "many">>;
-    actions: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        label: z.ZodString;
-        description: z.ZodOptional<z.ZodString>;
-        href: z.ZodOptional<z.ZodString>;
-        detail: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>, "many">>;
-    batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-} & {
-    type: z.ZodLiteral<"ingest_receipt">;
 }, z.ZodTypeAny, "passthrough">>;
 export declare const intakeSummaryCardSchema: z.ZodObject<{
     session_id: z.ZodOptional<z.ZodString>;
@@ -1941,6 +1977,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -1997,6 +2035,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -2053,6 +2093,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 } & {
     type: z.ZodLiteral<"boundary_prompt">;
@@ -2131,6 +2173,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -2187,6 +2231,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -2243,6 +2289,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 } & {
     type: z.ZodLiteral<"boundary_prompt">;
@@ -2321,6 +2369,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -2377,6 +2427,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
         artifact_id: z.ZodString;
         rollup_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
@@ -2433,6 +2485,8 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough">>>;
 } & {
     type: z.ZodLiteral<"boundary_prompt">;
@@ -2941,6 +2995,8 @@ export declare const buildBoundaryPromptCard: (p: z.input<typeof boundaryPromptP
             detail: z.ZodOptional<z.ZodString>;
         }, z.ZodTypeAny, "passthrough">>, "many">>;
         batch_id: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    } & {
+        type: z.ZodLiteral<"ingest_receipt">;
     }, z.ZodTypeAny, "passthrough"> | undefined;
 } & {
     [k: string]: unknown;

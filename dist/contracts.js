@@ -14,7 +14,7 @@
 // type-check against the union, so a new type that skips this file fails tsc
 // wherever it's handled.
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cardRenderIntent = exports.buildInstagramHandoffCard = exports.buildImageCard = exports.buildDocumentCard = exports.buildSessionResultCard = exports.buildIntakeSummaryCard = exports.buildIngestReceiptCard = exports.buildBoundaryPromptCard = exports.KNOWN_CARD_TYPES = exports.cardMetadataSchema = exports.instagramHandoffCardSchema = exports.imageCardSchema = exports.documentCardSchema = exports.sessionResultCardSchema = exports.intakeSummaryCardSchema = exports.ingestReceiptCardSchema = exports.boundaryPromptCardSchema = exports.instagramHandoffPayloadSchema = exports.imagePayloadSchema = exports.documentPayloadSchema = exports.sessionCardPayloadSchema = exports.boundaryPromptPayloadSchema = exports.ingestReceiptPayloadSchema = void 0;
+exports.cardRenderIntent = exports.buildInstagramHandoffCard = exports.buildImageCard = exports.buildDocumentCard = exports.buildSessionResultCard = exports.buildIntakeSummaryCard = exports.buildIngestReceiptCard = exports.buildBoundaryPromptCard = exports.KNOWN_CARD_TYPES = exports.cardMetadataSchema = exports.instagramHandoffCardSchema = exports.imageCardSchema = exports.documentCardSchema = exports.sessionResultCardSchema = exports.intakeSummaryCardSchema = exports.boundaryPromptCardSchema = exports.instagramHandoffPayloadSchema = exports.imagePayloadSchema = exports.documentPayloadSchema = exports.sessionCardPayloadSchema = exports.boundaryPromptPayloadSchema = exports.ingestReceiptCardSchema = exports.ingestReceiptPayloadSchema = void 0;
 const zod_1 = require("zod");
 // ---------------------------------------------------------------------------
 // Shared fragments
@@ -60,6 +60,13 @@ exports.ingestReceiptPayloadSchema = zod_1.z
     batch_id: zod_1.z.string().nullish(),
 })
     .passthrough();
+// Tagged ingest_receipt card — declared before boundary_prompt because the
+// boundary card embeds the FULL tagged receipt: the async filing pipeline
+// merges the same receipt object (type included) into the boundary message's
+// metadata in place (ingest.ts fireIngestReceipt).
+exports.ingestReceiptCardSchema = exports.ingestReceiptPayloadSchema.extend({
+    type: zod_1.z.literal('ingest_receipt'),
+});
 // Meeting wrap-up card (api ai route).
 exports.boundaryPromptPayloadSchema = zod_1.z
     .object({
@@ -71,7 +78,7 @@ exports.boundaryPromptPayloadSchema = zod_1.z
         .array(zod_1.z.object({ id: zod_1.z.string(), label: zod_1.z.string(), ask: zod_1.z.string().nullable() }).passthrough())
         .default([]),
     filing: zod_1.z.enum(['pending', 'complete', 'skipped', 'failed', 'none']).optional(),
-    receipt: exports.ingestReceiptPayloadSchema.optional(),
+    receipt: exports.ingestReceiptCardSchema.optional(),
 })
     .passthrough();
 // Session cards (api sessionCard.ts): intake_summary is the pre-output
@@ -112,9 +119,6 @@ exports.instagramHandoffPayloadSchema = zod_1.z
 // Tagged card schemas + the discriminated union
 exports.boundaryPromptCardSchema = exports.boundaryPromptPayloadSchema.extend({
     type: zod_1.z.literal('boundary_prompt'),
-});
-exports.ingestReceiptCardSchema = exports.ingestReceiptPayloadSchema.extend({
-    type: zod_1.z.literal('ingest_receipt'),
 });
 exports.intakeSummaryCardSchema = exports.sessionCardPayloadSchema.extend({
     type: zod_1.z.literal('intake_summary'),

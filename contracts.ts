@@ -66,6 +66,14 @@ export const ingestReceiptPayloadSchema = z
   })
   .passthrough();
 
+// Tagged ingest_receipt card — declared before boundary_prompt because the
+// boundary card embeds the FULL tagged receipt: the async filing pipeline
+// merges the same receipt object (type included) into the boundary message's
+// metadata in place (ingest.ts fireIngestReceipt).
+export const ingestReceiptCardSchema = ingestReceiptPayloadSchema.extend({
+  type: z.literal('ingest_receipt'),
+});
+
 // Meeting wrap-up card (api ai route).
 export const boundaryPromptPayloadSchema = z
   .object({
@@ -77,7 +85,7 @@ export const boundaryPromptPayloadSchema = z
       .array(z.object({ id: z.string(), label: z.string(), ask: z.string().nullable() }).passthrough())
       .default([]),
     filing: z.enum(['pending', 'complete', 'skipped', 'failed', 'none']).optional(),
-    receipt: ingestReceiptPayloadSchema.optional(),
+    receipt: ingestReceiptCardSchema.optional(),
   })
   .passthrough();
 
@@ -124,9 +132,6 @@ export const instagramHandoffPayloadSchema = z
 
 export const boundaryPromptCardSchema = boundaryPromptPayloadSchema.extend({
   type: z.literal('boundary_prompt'),
-});
-export const ingestReceiptCardSchema = ingestReceiptPayloadSchema.extend({
-  type: z.literal('ingest_receipt'),
 });
 export const intakeSummaryCardSchema = sessionCardPayloadSchema.extend({
   type: z.literal('intake_summary'),
