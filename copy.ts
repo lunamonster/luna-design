@@ -26,6 +26,7 @@ export const copy = {
     dashboard: 'Dashboard',
     newChat: '+ New Chat',
     spacesHeader: 'SPACES',
+    chatsHeader: 'Chats',
     entities: '🗺️ Entities',
     ingest: '📥 Ingest transcript',
     review: '🗂 Review queue',

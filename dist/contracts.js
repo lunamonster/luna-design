@@ -36,8 +36,8 @@ const transcriptRefSchema = zod_1.z
 exports.ingestReceiptPayloadSchema = zod_1.z
     .object({
     artifact_id: zod_1.z.string(),
-    rollup_id: zod_1.z.string().optional(),
-    summary: zod_1.z.string(),
+    rollup_id: zod_1.z.string().nullish(),
+    summary: zod_1.z.string().nullable(),
     counts: zod_1.z
         .object({
         proposals_pending: zod_1.z.number(),
@@ -57,7 +57,7 @@ exports.ingestReceiptPayloadSchema = zod_1.z
         .passthrough())
         .optional(),
     actions: zod_1.z.array(actionSchema).optional(),
-    batch_id: zod_1.z.string().optional(),
+    batch_id: zod_1.z.string().nullish(),
 })
     .passthrough();
 // Meeting wrap-up card (api ai route).
@@ -68,7 +68,7 @@ exports.boundaryPromptPayloadSchema = zod_1.z
     held_items: zod_1.z.number(),
     artifact_id: zod_1.z.string().nullish(),
     chips: zod_1.z
-        .array(zod_1.z.object({ id: zod_1.z.string(), label: zod_1.z.string(), ask: zod_1.z.string() }).passthrough())
+        .array(zod_1.z.object({ id: zod_1.z.string(), label: zod_1.z.string(), ask: zod_1.z.string().nullable() }).passthrough())
         .default([]),
     filing: zod_1.z.enum(['pending', 'complete', 'skipped', 'failed', 'none']).optional(),
     receipt: exports.ingestReceiptPayloadSchema.optional(),

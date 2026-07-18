@@ -39,8 +39,8 @@ const transcriptRefSchema = z
 export const ingestReceiptPayloadSchema = z
   .object({
     artifact_id: z.string(),
-    rollup_id: z.string().optional(),
-    summary: z.string(),
+    rollup_id: z.string().nullish(),
+    summary: z.string().nullable(),
     counts: z
       .object({
         proposals_pending: z.number(),
@@ -62,7 +62,7 @@ export const ingestReceiptPayloadSchema = z
       )
       .optional(),
     actions: z.array(actionSchema).optional(),
-    batch_id: z.string().optional(),
+    batch_id: z.string().nullish(),
   })
   .passthrough();
 
@@ -74,7 +74,7 @@ export const boundaryPromptPayloadSchema = z
     held_items: z.number(),
     artifact_id: z.string().nullish(),
     chips: z
-      .array(z.object({ id: z.string(), label: z.string(), ask: z.string() }).passthrough())
+      .array(z.object({ id: z.string(), label: z.string(), ask: z.string().nullable() }).passthrough())
       .default([]),
     filing: z.enum(['pending', 'complete', 'skipped', 'failed', 'none']).optional(),
     receipt: ingestReceiptPayloadSchema.optional(),

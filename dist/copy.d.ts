@@ -26,6 +26,7 @@ export declare const copy: {
         readonly dashboard: "Dashboard";
         readonly newChat: "+ New Chat";
         readonly spacesHeader: "SPACES";
+        readonly chatsHeader: "Chats";
         readonly entities: "🗺️ Entities";
         readonly ingest: "📥 Ingest transcript";
         readonly review: "🗂 Review queue";
