@@ -86,6 +86,21 @@ export const colors = {
   },
 } as const;
 
+// Deterministic color for a context that has no explicit color set.
+// (Moved from the deleted rules.ts in v0.2 — this is a visual mapping, not a
+// behavior rule; behavior/ordering truth lives server-side by decision.)
+export const paletteForContext = (
+  contextId: string,
+  paletteColors: readonly string[] = colors.palette
+): string => {
+  let hash = 0;
+  for (let i = 0; i < contextId.length; i++) {
+    hash = ((hash << 5) - hash) + contextId.charCodeAt(i);
+    hash |= 0;
+  }
+  return paletteColors[Math.abs(hash) % paletteColors.length];
+};
+
 export const typography = {
   heading: { family: 'Caveat Brush', weight: 400 },     // space names, week header
   label:   { family: 'Caveat Brush', weight: 400 },     // section labels, "+ add"

@@ -1,0 +1,15 @@
+# Drift guard: dist/ is committed (git-dep consumers install without a build
+# step), so an edit to src that skips `npm run build` ships stale dist silently.
+# This check fails the PR instead.
+name: verify-dist
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm run build
+      - run: git diff --exit-code dist

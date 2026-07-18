@@ -5,7 +5,7 @@
 // line is noted; space accent colors below are runtime-overridable fallbacks
 // (the API supplies DashboardSpace.color per space).
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.opacity = exports.radii = exports.spacing = exports.typography = exports.colors = void 0;
+exports.opacity = exports.radii = exports.spacing = exports.typography = exports.paletteForContext = exports.colors = void 0;
 exports.colors = {
     cream: '#FEFCF7', // app background (dashboard.tsx CREAM)
     creamDeep: '#F4F6F5', // cool off-white — shared/section surfaces
@@ -79,6 +79,18 @@ exports.colors = {
         pendingBadge: '#c05c00', // muted pending-count badge
     },
 };
+// Deterministic color for a context that has no explicit color set.
+// (Moved from the deleted rules.ts in v0.2 — this is a visual mapping, not a
+// behavior rule; behavior/ordering truth lives server-side by decision.)
+const paletteForContext = (contextId, paletteColors = exports.colors.palette) => {
+    let hash = 0;
+    for (let i = 0; i < contextId.length; i++) {
+        hash = ((hash << 5) - hash) + contextId.charCodeAt(i);
+        hash |= 0;
+    }
+    return paletteColors[Math.abs(hash) % paletteColors.length];
+};
+exports.paletteForContext = paletteForContext;
 exports.typography = {
     heading: { family: 'Caveat Brush', weight: 400 }, // space names, week header
     label: { family: 'Caveat Brush', weight: 400 }, // section labels, "+ add"

@@ -82,6 +82,7 @@ export declare const colors: {
         readonly pendingBadge: "#c05c00";
     };
 };
+export declare const paletteForContext: (contextId: string, paletteColors?: readonly string[]) => string;
 export declare const typography: {
     readonly heading: {
         readonly family: "Caveat Brush";

@@ -1,12 +1,16 @@
 {
   "name": "@lunamonster/luna-design",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": ["dist", "fonts"],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && node scripts/generate-css.cjs",
+    "check:dist": "npm run build && git diff --exit-code dist"
+  },
+  "dependencies": {
+    "zod": "^3.25.0"
   },
   "devDependencies": {
     "typescript": "^5.4.0"

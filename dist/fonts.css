@@ -1,0 +1,53 @@
+/* Luna — self-hosted fonts, shipped by @lunamonster/luna-design (fonts/).
+ * GENERATED (scripts/generate-css.cjs) — do not hand-edit.
+ * Licensed faces (Safira March, Stay Dreaming Alt) are NOT on any CDN and must
+ * be served from these files — never rely on a font being installed. License
+ * for private-package redistribution confirmed 2026-07-18.
+ * Paths are relative to dist/ (bundlers resolve ../fonts within the package).
+ */
+
+/* Rainbow theme display (brush) — licensed */
+@font-face {
+  font-family: 'Stay Dreaming Alt';
+  src: url('../fonts/StayDreamingAlt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light/Dark display · Rainbow body — licensed (thin master; 100–400 range) */
+@font-face {
+  font-family: 'Safira March';
+  src: url('../fonts/SafiraMarch-Thin.ttf') format('truetype');
+  font-weight: 100 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light/Dark body — self-hosted copy of Cairo (also free on Google Fonts) */
+@font-face {
+  font-family: 'Cairo';
+  src: url('../fonts/Cairo.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Western Sans — self-hosted (woff2 → woff → otf fallback) */
+@font-face {
+  font-family: 'Western Sans';
+  src: url('../fonts/WesternSans-Regular.woff2') format('woff2'),
+       url('../fonts/WesternSans-Regular.woff') format('woff'),
+       url('../fonts/WesternSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Semantic aliases for the theme system to consume via font-family: var(--font-*). */
+:root {
+  --font-display-brush: 'Stay Dreaming Alt', 'Caveat Brush', cursive;
+  --font-display-elegant: 'Safira March', 'Poppins', sans-serif;
+  --font-body-cairo: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-western: 'Western Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
