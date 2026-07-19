@@ -36,6 +36,11 @@ export interface ThemeTokens {
   /** Faint full-spectrum wash over the base surface; 'none' outside rainbow. */
   boardWash: string;
   lanes: { thinking: ThemeLane; doing: ThemeLane; queued: ThemeLane };
+  /** Capture surfaces (WitnessRail, note cards, capture shell band, offline
+   *  queued badges). Promoted from hardcoded #8B5CF6/#7C3AED per the rail
+   *  design intent — new capture surfaces must consume these, never literals. */
+  captureAccent: string;
+  captureAccentStrong: string;
   fontDisplay: string;
   fontBody: string;
   /** Legacy shell remap value (--cream-dark) — per-theme darker surface. */
@@ -66,6 +71,8 @@ export const themes: Record<ThemeName, ThemeTokens> = {
       doing: { bg: 'linear-gradient(90deg,#FFE9D6,#FFDCCB)', fg: '#E0561B' },
       queued: { bg: 'linear-gradient(90deg,#DCF6EC,#D2F0E2)', fg: '#0E9E85' },
     },
+    captureAccent: '#8B5CF6',
+    captureAccentStrong: '#7C3AED',
     fontDisplay: "'Stay Dreaming Alt', 'Caveat Brush', cursive",
     fontBody: "'Safira March', -apple-system, BlinkMacSystemFont, 'Poppins', sans-serif",
     creamDark: '#FBEFF4',
@@ -91,6 +98,8 @@ export const themes: Record<ThemeName, ThemeTokens> = {
       doing: { bg: '#FFF0E6', fg: '#E07A2E' },
       queued: { bg: '#E7F6EF', fg: '#2F9E6B' },
     },
+    captureAccent: '#8B5CF6',
+    captureAccentStrong: '#7C3AED',
     fontDisplay: "'Safira March', 'Poppins', sans-serif",
     fontBody: "'Cairo', -apple-system, BlinkMacSystemFont, sans-serif",
     creamDark: '#ECEEF6',
@@ -115,6 +124,8 @@ export const themes: Record<ThemeName, ThemeTokens> = {
       doing: { bg: '#2E2116', fg: '#F0A868' },
       queued: { bg: '#16281F', fg: '#6FCF97' },
     },
+    captureAccent: '#A78BFA',
+    captureAccentStrong: '#8B5CF6',
     fontDisplay: "'Safira March', 'Poppins', sans-serif",
     fontBody: "'Cairo', -apple-system, BlinkMacSystemFont, sans-serif",
     creamDark: '#16121F',

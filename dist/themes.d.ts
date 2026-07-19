@@ -23,6 +23,11 @@ export interface ThemeTokens {
         doing: ThemeLane;
         queued: ThemeLane;
     };
+    /** Capture surfaces (WitnessRail, note cards, capture shell band, offline
+     *  queued badges). Promoted from hardcoded #8B5CF6/#7C3AED per the rail
+     *  design intent — new capture surfaces must consume these, never literals. */
+    captureAccent: string;
+    captureAccentStrong: string;
     fontDisplay: string;
     fontBody: string;
     /** Legacy shell remap value (--cream-dark) — per-theme darker surface. */

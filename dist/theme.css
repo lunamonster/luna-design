@@ -32,6 +32,8 @@
   --link-underline: #F2A9C6;
   --empty-bg: #F6EEF6;
   --empty-fg: #C9AECB;
+  --capture-accent: #8B5CF6;
+  --capture-accent-strong: #7C3AED;
 
   /* Faint full-spectrum board wash over the base surface. */
   --board-wash: linear-gradient(120deg,
@@ -69,6 +71,8 @@
   --link-underline: #B9BEF5;
   --empty-bg: #F1F2F6;
   --empty-fg: #B4B7C4;
+  --capture-accent: #8B5CF6;
+  --capture-accent-strong: #7C3AED;
   --board-wash: none;
 
   --lane-thinking-bg: #EEF0FE; --lane-thinking-fg: #5B63E6;
@@ -100,6 +104,8 @@
   --link-underline: #6D5A9E;
   --empty-bg: #211E2B;
   --empty-fg: #5C5670;
+  --capture-accent: #A78BFA;
+  --capture-accent-strong: #8B5CF6;
   --board-wash: none;
 
   --lane-thinking-bg: #241C36; --lane-thinking-fg: #A78BFA;

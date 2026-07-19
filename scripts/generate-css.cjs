@@ -27,6 +27,8 @@ const vars = (t) => ({
   '--link-underline': t.linkUnderline,
   '--empty-bg': t.emptyBg,
   '--empty-fg': t.emptyFg,
+  '--capture-accent': t.captureAccent,
+  '--capture-accent-strong': t.captureAccentStrong,
 });
 
 const laneLines = (t, pad = '  ') =>
