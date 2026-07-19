@@ -127,6 +127,23 @@ export const instagramHandoffPayloadSchema = z
   })
   .passthrough();
 
+// Brain-down cloud-fallback consent (Trust Boundary v3 W1-P3 follow-up).
+// NOT filed into chat: background jobs have no ambient session to safely
+// inject into (the Bug-4 misfiling class), so the api serves this card from
+// GET /api/brain/consent and clients render it as an ambient shell banner.
+// `state: 'pending'` = a consent request awaits Approve/Deny; `state: 'open'`
+// = an approved window is live and revocable until `expires_at`.
+export const brainConsentPayloadSchema = z
+  .object({
+    state: z.enum(['pending', 'open']),
+    requested_for: z.string().nullish(),
+    reason: z.string().nullish(),
+    requested_at: z.string().nullish(),
+    window_minutes: z.number(),
+    expires_at: z.string().nullish(),
+  })
+  .passthrough();
+
 // ---------------------------------------------------------------------------
 // Tagged card schemas + the discriminated union
 
@@ -148,6 +165,9 @@ export const imageCardSchema = imagePayloadSchema.extend({
 export const instagramHandoffCardSchema = instagramHandoffPayloadSchema.extend({
   type: z.literal('instagram_handoff'),
 });
+export const brainConsentCardSchema = brainConsentPayloadSchema.extend({
+  type: z.literal('brain_consent'),
+});
 
 export const cardMetadataSchema = z.discriminatedUnion('type', [
   boundaryPromptCardSchema,
@@ -157,6 +177,7 @@ export const cardMetadataSchema = z.discriminatedUnion('type', [
   documentCardSchema,
   imageCardSchema,
   instagramHandoffCardSchema,
+  brainConsentCardSchema,
 ]);
 
 export type CardMetadata = z.infer<typeof cardMetadataSchema>;
@@ -168,6 +189,7 @@ export type SessionResultCard = z.infer<typeof sessionResultCardSchema>;
 export type DocumentCard = z.infer<typeof documentCardSchema>;
 export type ImageCard = z.infer<typeof imageCardSchema>;
 export type InstagramHandoffCard = z.infer<typeof instagramHandoffCardSchema>;
+export type BrainConsentCard = z.infer<typeof brainConsentCardSchema>;
 
 export const KNOWN_CARD_TYPES = [
   'boundary_prompt',
@@ -177,6 +199,7 @@ export const KNOWN_CARD_TYPES = [
   'document',
   'image',
   'instagram_handoff',
+  'brain_consent',
 ] as const satisfies readonly CardType[];
 
 // ---------------------------------------------------------------------------
@@ -205,6 +228,8 @@ export const buildImageCard = (p: z.input<typeof imagePayloadSchema>) =>
   build('image', imageCardSchema, p);
 export const buildInstagramHandoffCard = (p: z.input<typeof instagramHandoffPayloadSchema>) =>
   build('instagram_handoff', instagramHandoffCardSchema, p);
+export const buildBrainConsentCard = (p: z.input<typeof brainConsentPayloadSchema>) =>
+  build('brain_consent', brainConsentCardSchema, p);
 
 // ---------------------------------------------------------------------------
 // Per-client rendering intent — the RECORD of deliberate asymmetries, so they
@@ -224,4 +249,9 @@ export const cardRenderIntent: Record<CardType, { web: boolean; mobile: boolean;
   document: { web: true, mobile: true, note: 'mobile renderer lands in REQ-parity-arch-mobile Phase 2' },
   image: { web: true, mobile: true, note: 'mobile renderer lands in REQ-parity-arch-mobile Phase 2' },
   instagram_handoff: { web: false, mobile: true, note: 'Android-only sharing intent hand-off' },
+  brain_consent: {
+    web: true,
+    mobile: false,
+    note: 'served by GET /api/brain/consent (never filed into chat); mobile surface is the Expo push (W1-P3) until a parity wave adds the card',
+  },
 };

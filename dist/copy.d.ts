@@ -20,6 +20,15 @@ export declare const copy: {
         readonly urgentStrongNudge: (n: number) => string;
         readonly sidebarBadge: (n: number) => string;
     };
+    readonly brainConsent: {
+        readonly pendingTitle: "Local brain is down";
+        readonly pendingBody: (task: string | null | undefined, minutes: number) => string;
+        readonly approve: (minutes: number) => string;
+        readonly deny: "Deny";
+        readonly openTitle: "Cloud fallback window open";
+        readonly openBody: (until: string) => string;
+        readonly revoke: "Revoke";
+    };
     readonly sidebar: {
         readonly luna: "Luna 2.0";
         readonly tagline: "meaning is inferred from repeated associations, not enforced structure";

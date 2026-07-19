@@ -1056,6 +1056,28 @@ export declare const instagramHandoffPayloadSchema: z.ZodObject<{
     mimeType: z.ZodOptional<z.ZodString>;
     caption: z.ZodOptional<z.ZodString>;
 }, z.ZodTypeAny, "passthrough">>;
+export declare const brainConsentPayloadSchema: z.ZodObject<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+}, z.ZodTypeAny, "passthrough">>;
 export declare const boundaryPromptCardSchema: z.ZodObject<{
     minutes: z.ZodNumber;
     transcript_chars: z.ZodNumber;
@@ -1901,6 +1923,34 @@ export declare const instagramHandoffCardSchema: z.ZodObject<{
     caption: z.ZodOptional<z.ZodString>;
 } & {
     type: z.ZodLiteral<"instagram_handoff">;
+}, z.ZodTypeAny, "passthrough">>;
+export declare const brainConsentCardSchema: z.ZodObject<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"brain_consent">;
+}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"brain_consent">;
+}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"brain_consent">;
 }, z.ZodTypeAny, "passthrough">>;
 export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     minutes: z.ZodNumber;
@@ -2916,6 +2966,33 @@ export declare const cardMetadataSchema: z.ZodDiscriminatedUnion<"type", [z.ZodO
     caption: z.ZodOptional<z.ZodString>;
 } & {
     type: z.ZodLiteral<"instagram_handoff">;
+}, z.ZodTypeAny, "passthrough">>, z.ZodObject<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"brain_consent">;
+}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"brain_consent">;
+}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+    state: z.ZodEnum<["pending", "open"]>;
+    requested_for: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    reason: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    requested_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    window_minutes: z.ZodNumber;
+    expires_at: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+} & {
+    type: z.ZodLiteral<"brain_consent">;
 }, z.ZodTypeAny, "passthrough">>]>;
 export type CardMetadata = z.infer<typeof cardMetadataSchema>;
 export type CardType = CardMetadata['type'];
@@ -2926,7 +3003,8 @@ export type SessionResultCard = z.infer<typeof sessionResultCardSchema>;
 export type DocumentCard = z.infer<typeof documentCardSchema>;
 export type ImageCard = z.infer<typeof imageCardSchema>;
 export type InstagramHandoffCard = z.infer<typeof instagramHandoffCardSchema>;
-export declare const KNOWN_CARD_TYPES: readonly ["boundary_prompt", "ingest_receipt", "intake_summary", "session_result", "document", "image", "instagram_handoff"];
+export type BrainConsentCard = z.infer<typeof brainConsentCardSchema>;
+export declare const KNOWN_CARD_TYPES: readonly ["boundary_prompt", "ingest_receipt", "intake_summary", "session_result", "document", "image", "instagram_handoff", "brain_consent"];
 export declare const buildBoundaryPromptCard: (p: z.input<typeof boundaryPromptPayloadSchema>) => {
     type: "boundary_prompt";
     minutes: number;
@@ -3102,6 +3180,19 @@ export declare const buildInstagramHandoffCard: (p: z.input<typeof instagramHand
     [k: string]: unknown;
 } & {
     type: "instagram_handoff";
+};
+export declare const buildBrainConsentCard: (p: z.input<typeof brainConsentPayloadSchema>) => {
+    type: "brain_consent";
+    state: "pending" | "open";
+    window_minutes: number;
+    requested_for?: string | null | undefined;
+    reason?: string | null | undefined;
+    requested_at?: string | null | undefined;
+    expires_at?: string | null | undefined;
+} & {
+    [k: string]: unknown;
+} & {
+    type: "brain_consent";
 };
 export declare const cardRenderIntent: Record<CardType, {
     web: boolean;
